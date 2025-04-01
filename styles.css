@@ -11,19 +11,32 @@ header {
     padding: 0.5rem 0;
 }
 
-/* Logo styles - consolidated and simplified */
+/* Logo styles */
 .logo {
     display: flex;
     align-items: center;
     font-size: 1.8rem;
     font-weight: bold;
     color: #e63946;
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: #c1121f;
 }
 
 /* Navbar styles */
-.navbar .container-fluid {
-    display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
+.navbar-toggler {
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.navbar-nav {
     align-items: center;
 }
 
@@ -38,6 +51,24 @@ header {
     color: #e63946;
 }
 
+/* Make sure the navbar expands correctly on mobile */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background-color: white;
+        padding: 1rem;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .navbar .container {
+        position: relative;
+    }
+}
+
 /* Hero section */
 .hero {
     height: 70vh;
@@ -46,7 +77,7 @@ header {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    margin-top: 56px;
+    margin-top: 76px; /* Increased to account for header height */
     position: relative;
     /* Including all vendor prefixes for better cross-browser compatibility */
     -webkit-background-size: cover;
@@ -138,6 +169,7 @@ footer ul li {
     .hero {
         height: 60vh;
         background-attachment: scroll; /* Better for mobile */
+        margin-top: 66px; /* Adjusted for smaller header */
     }
     
     .hero-content h1 {
@@ -146,14 +178,6 @@ footer ul li {
     
     .logo {
         font-size: 1.2rem; /* Smaller text on mobile */
-    }
-    
-    .navbar-brand {
-        max-width: 70%; /* Limit width on small screens */
-    }
-    
-    .navbar-toggler {
-        margin-left: auto; /* Ensure hamburger stays on right */
     }
 }
 
