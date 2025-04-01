@@ -29,23 +29,22 @@ header {
 }
 
 /* Hero section */
+/* In styles.css, update the hero section */
 .hero {
     height: 70vh;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* This is the key property */
     margin-top: 56px;
+    position: relative;
+    /* ...existing hero styles... */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.hero-content h1 {
-    font-weight: bold;
-}
-
-.hero-content p {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 /* Custom button styles */
 .btn-danger {
@@ -94,6 +93,17 @@ footer h3 {
 
 footer ul li {
     margin-bottom: 0.5rem;
+}
+
+.services, .about, .contact, footer {
+    position: relative;
+    z-index: 1;
+    background-color: #fff; /* Ensures content background is opaque */
+}
+
+/* Adjust the about section which already has a background */
+.about {
+    background-color: #f8f9fa;
 }
 
 /* Responsive adjustments */
