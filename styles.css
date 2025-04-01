@@ -11,10 +11,20 @@ header {
     padding: 0.5rem 0;
 }
 
+/* Logo styles - consolidated and simplified */
 .logo {
+    display: flex;
+    align-items: center;
     font-size: 1.8rem;
     font-weight: bold;
     color: #e63946;
+}
+
+/* Navbar styles */
+.navbar .container-fluid {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    align-items: center;
 }
 
 .navbar-nav .nav-link {
@@ -29,27 +39,26 @@ header {
 }
 
 /* Hero section */
-/* In styles.css, update the hero section */
 .hero {
     height: 70vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* This is the key property */
+    background-attachment: fixed;
     margin-top: 56px;
     position: relative;
-    /* ...existing hero styles... */
+    /* Including all vendor prefixes for better cross-browser compatibility */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
 }
-
 
 /* Custom button styles */
 .btn-danger {
     background-color: #e63946;
     border-color: #e63946;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .btn-danger:hover {
@@ -63,6 +72,8 @@ header {
     border-radius: 5px;
     text-align: center;
     transition: transform 0.3s;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .service-card:hover {
@@ -72,9 +83,30 @@ header {
 .service-icon {
     font-size: 3rem;
     color: #e63946;
+    margin-bottom: 1rem;
+}
+
+/* Section styles */
+.services, .about, .contact, footer {
+    position: relative;
+    z-index: 1;
+    background-color: #fff; /* Ensures content background is opaque */
+    padding: 3rem 0;
+}
+
+/* About section */
+.about {
+    background-color: #f8f9fa;
 }
 
 /* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
 footer a {
     color: #ddd;
     text-decoration: none;
@@ -89,30 +121,45 @@ footer a:hover {
 footer h3 {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 0;
 }
 
 footer ul li {
     margin-bottom: 0.5rem;
 }
 
-.services, .about, .contact, footer {
-    position: relative;
-    z-index: 1;
-    background-color: #fff; /* Ensures content background is opaque */
-}
-
-/* Adjust the about section which already has a background */
-.about {
-    background-color: #f8f9fa;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero {
         height: 60vh;
+        background-attachment: scroll; /* Better for mobile */
     }
     
     .hero-content h1 {
         font-size: 2rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem; /* Smaller text on mobile */
+    }
+    
+    .navbar-brand {
+        max-width: 70%; /* Limit width on small screens */
+    }
+    
+    .navbar-toggler {
+        margin-left: auto; /* Ensure hamburger stays on right */
+    }
+}
+
+/* For very small screens */
+@media (max-width: 360px) {
+    .logo {
+        font-size: 1rem; /* Even smaller on very small screens */
     }
 }
